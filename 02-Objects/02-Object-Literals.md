@@ -1,5 +1,8 @@
 # Object Literals
 
+It is a syntax for creating an object in JavaScript that is composed of key-value pairs
+
+
 ```javascript
 const circle = {
     radius: 1,

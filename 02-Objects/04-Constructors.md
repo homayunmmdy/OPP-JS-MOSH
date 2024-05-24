@@ -1,5 +1,7 @@
 # Constructors
 
+constructor function is used to create and initialize objects.
+
 ```javascript
 // Factory Function
 function createCircle(radius) {
