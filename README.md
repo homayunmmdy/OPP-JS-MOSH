@@ -118,9 +118,11 @@ x.value = 20;
 
 console.log(y);
 ```
-Now we will get 20 because it's a object and objects  are reference type which mean thay the save the reference and x holding the reference or address (it's store somewhere in memory) of value 10 and y will copy that refernce or addrest so both of theme are pointing in one place
+
+Now we will get 20 because it's a object and objects are reference type which mean thay the save the reference and x holding the reference or address (it's store somewhere in memory) of value 10 and y will copy that refernce or addrest so both of theme are pointing in one place
 
 ## Adding or Removing Properties
+
 ```javascript
 function Circle(radius) {
   this.radius = radius;
@@ -132,8 +134,23 @@ function Circle(radius) {
 const circle = new Circle(2);
 
 circle.location = { x: 1 };
-delete circle.radius
+delete circle.radius;
 
 console.log(circle);
+```
 
+## Enumerating Properties
+
+```javascript
+// iterate to get the keys
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+
+// another way to get keys
+const keys = Object.keys(circle);
+console.log(keys);
+
+// check that include in object or not
+if ("radius" in circle) console.log("Circle has radius");
 ```

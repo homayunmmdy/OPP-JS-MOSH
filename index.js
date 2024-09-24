@@ -7,7 +7,14 @@ function Circle(radius) {
 
 const circle = new Circle(2);
 
-circle.location = { x: 1 };
-delete circle.radius
+// iterate to get the keys
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
 
-console.log(circle);
+// another way to get keys
+const keys = Object.keys(circle);
+console.log(keys);
+
+// check that include in object or not
+if ("radius" in circle) console.log("Circle has radius");
