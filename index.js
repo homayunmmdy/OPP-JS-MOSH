@@ -1,6 +1,13 @@
-let x = 10
-let y = x;
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
 
-x = 20 
- 
-console.log(y)
+const circle = new Circle(2);
+
+circle.location = { x: 1 };
+delete circle.radius
+
+console.log(circle);
