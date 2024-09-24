@@ -162,8 +162,7 @@ function Circle(radius) {
   this.defaultLocation = { x: 0, y: 0 };
 
   this.computeOptimumLocation = function(factor) {
-    // ..
-    console.log('Computing')
+    console.log(this.defaultLocation)
   }
 
   this.draw = function () {
@@ -174,4 +173,24 @@ function Circle(radius) {
 
 const circle = new Circle(2);
 circle.draw()
+```
+### Private Properties and methods
+now we don't had access on defaultLocation or computeOptimumLocation
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  let defaultLocation = { x: 0, y: 0 };
+
+  let computeOptimumLocation = function (factor) {
+    console.log(defaultLocation);
+  };
+
+  this.draw = function () {
+    computeOptimumLocation(0.1);
+    console.log("draw");
+  };
+}
+
+const circle = new Circle(2);
+circle.draw();
 ```
