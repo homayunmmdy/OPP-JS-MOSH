@@ -81,3 +81,41 @@ draw() {
 `
 );
 ```
+
+## Value vs Reference Type
+
+Value Types || Primiary Types are include
+
+- Number
+- String
+- Boolean
+- Symbol
+
+Reference Types
+
+- Object
+- Function
+- Array
+
+In the code blew what do you think the outcome will be
+
+```javascript
+let x = 10;
+let y = x;
+
+x = 20;
+
+console.log(y);
+```
+
+it's 10 because in primity <mark>copied value</mark> and x hold the 10 and y is copied the then when we change x it's not effect on y and other hand on object or refercen value
+
+```javascript
+let x = { value: 10 };
+let y = x;
+
+x.value = 20;
+
+console.log(y);
+```
+Now we will get 20 because it's a object and objects  are reference type which mean thay the save the reference and x holding the reference or address (it's store somewhere in memory) of value 10 and y will copy that refernce or addrest so both of theme are pointing in one place
