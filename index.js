@@ -10,4 +10,13 @@ function createCircle(radius) {
 
 const circle = createCircle(1);
 
-circle.draw();
+// Constructor function
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+
+const another = new Circle(2);
+console.log(another.radius)
