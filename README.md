@@ -47,3 +47,6 @@ function Circle(radius) {
 const another = new Circle(2);
 console.log(another.radius)
 ```
+
+## Constructor Property
+returns a reference to the  function that created that.
