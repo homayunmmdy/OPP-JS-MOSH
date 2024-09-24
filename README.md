@@ -194,3 +194,31 @@ function Circle(radius) {
 const circle = new Circle(2);
 circle.draw();
 ```
+
+## Getter and Setter
+in previous if wee want just show defaultLocation but they won't be able to modified we simply call it with getter
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  let defaultLocation = { x: 0, y: 0 };
+
+  this.draw = function () {
+    console.log("draw");
+  };
+
+  Object.defineProperty(this, "defaultLocation", {
+    get: function () {
+      return defaultLocation;
+    },
+    set: function (value) {
+      if (!value.x || !value.y) throw new Error("Invalid location");
+      defaultLocation = value;
+    },
+  });
+}
+
+const circle = new Circle(2);
+circle.defaultLocation = 1
+circle.draw();
+
+```
