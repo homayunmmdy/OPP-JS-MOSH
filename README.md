@@ -154,3 +154,24 @@ console.log(keys);
 // check that include in object or not
 if ("radius" in circle) console.log("Circle has radius");
 ```
+## Abstraction
+Hide the details show the essentials now here must hide some properties and methods
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.defaultLocation = { x: 0, y: 0 };
+
+  this.computeOptimumLocation = function(factor) {
+    // ..
+    console.log('Computing')
+  }
+
+  this.draw = function () {
+    this.computeOptimumLocation(0.1)
+    console.log("draw");
+  };
+}
+
+const circle = new Circle(2);
+circle.draw()
+```

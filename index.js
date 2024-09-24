@@ -1,20 +1,17 @@
 function Circle(radius) {
   this.radius = radius;
+  this.defaultLocation = { x: 0, y: 0 };
+
+  this.computeOptimumLocation = function(factor) {
+    // ..
+    console.log('Computing')
+  }
+
   this.draw = function () {
+    this.computeOptimumLocation(0.1)
     console.log("draw");
   };
 }
 
 const circle = new Circle(2);
-
-// iterate to get the keys
-for (let key in circle) {
-  console.log(key, circle[key]);
-}
-
-// another way to get keys
-const keys = Object.keys(circle);
-console.log(keys);
-
-// check that include in object or not
-if ("radius" in circle) console.log("Circle has radius");
+circle.draw()
