@@ -154,28 +154,34 @@ console.log(keys);
 // check that include in object or not
 if ("radius" in circle) console.log("Circle has radius");
 ```
+
 ## Abstraction
+
 Hide the details show the essentials now here must hide some properties and methods
+
 ```javascript
 function Circle(radius) {
   this.radius = radius;
   this.defaultLocation = { x: 0, y: 0 };
 
-  this.computeOptimumLocation = function(factor) {
-    console.log(this.defaultLocation)
-  }
+  this.computeOptimumLocation = function (factor) {
+    console.log(this.defaultLocation);
+  };
 
   this.draw = function () {
-    this.computeOptimumLocation(0.1)
+    this.computeOptimumLocation(0.1);
     console.log("draw");
   };
 }
 
 const circle = new Circle(2);
-circle.draw()
+circle.draw();
 ```
+
 ### Private Properties and methods
+
 now we don't had access on defaultLocation or computeOptimumLocation
+
 ```javascript
 function Circle(radius) {
   this.radius = radius;
@@ -196,7 +202,9 @@ circle.draw();
 ```
 
 ## Getter and Setter
+
 in previous if wee want just show defaultLocation but they won't be able to modified we simply call it with getter
+
 ```javascript
 function Circle(radius) {
   this.radius = radius;
@@ -218,12 +226,12 @@ function Circle(radius) {
 }
 
 const circle = new Circle(2);
-circle.defaultLocation = 1
+circle.defaultLocation = 1;
 circle.draw();
-
 ```
 
 ## StopWatch exercise
+
 ```javascript
 function Stopwatch() {
   let startTime,
@@ -264,21 +272,21 @@ function Stopwatch() {
   });
 }
 
-const sw = new Stopwatch()
+const sw = new Stopwatch();
 ```
 
 ## Prototypical Inheritance
+
 prototype is parent of another object. we have one object (ObjectBase)
-that every object we create inheritce that like this image that x and y are inherit from the  ObjectBase.
+that every object we create inheritce that like this image that x and y are inherit from the ObjectBase.
 
 ![Screenshot from 2024-09-27 13-51-32](https://github.com/user-attachments/assets/c394a830-1765-4861-ace0-8bf6ef1e6312)
-
 
 ObjectBase: <b>is root of all objects in the javscript and it' dosen't have prototype(parents)</b>
 
 if we call an something in object in the Javascript , Javascript engine first check it self object if it is not exist then check the parent again if not it will contiure up to root to find that if is not exist then show undefined
 
-<mark>A prototype is just a regular object</mark> just the root thosen't have 
+<mark>A prototype is just a regular object</mark> just the root thosen't have
 
 ## Multilevel Inheritance
 
@@ -286,11 +294,9 @@ Imagine we had array this array have protoype arrayBase and arrayBase inherit fr
 
 ![ArrayBase](https://github.com/user-attachments/assets/174763fe-4d86-4527-b71d-970134c35acb)
 
-
 <mark>Objects created by a given constructor will have the same prototype</mark> in this example when we create with constructor we create CircleBase that inherit from root here is what we have in memory
 
 ![ObjectBase](https://github.com/user-attachments/assets/57ca7e00-6b52-4b9a-9022-86b5903751cf)
-
 
 ```javascript
 function Circle(radius) {
@@ -301,4 +307,24 @@ function Circle(radius) {
 }
 
 const circle = new Circle(10);
+```
+
+## Property Descriptors
+
+<b>property descriptors</b> are objects that describe the configureation of hte property on an object. They provide metadata about the properties like whether they are writable , enumerable or configurable and how they behave when accessed or modified
+
+also you can change the configaration of it like this example
+
+```javascript
+let person = { name: "Homayoun" };
+
+Object.defineProperty(person, "name", {
+  // by default all of these are true
+  writable: false, // we can't cahnge
+  enumerable: false, // we can't iterate and get keys
+  configurable: false, // we can't delete
+});
+
+person.name = "John"; // the name will not change
+console.log(Object.keys(person)); // we will get empty array because enumerable is false
 ```

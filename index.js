@@ -1,40 +1,12 @@
-function Stopwatch() {
-  let startTime,
-    endTime,
-    running,
-    duration = 0;
+let person = {name: "Homayoun" }
 
-  this.start = function () {
-    if (running) throw new Error("Stopwatch has already started.");
+Object.defineProperty(person, 'name', {
+  // by default all of these are true
+  writable: false, // we can't cahnge
+  enumerable: false, // we can't iterate and get keys
+  configurable: false // we can't delete
+})
 
-    running = true;
+person.name = 'John' // the name will not change 
+console.log(Object.keys(person)) // we will get empty array because enumerable is false
 
-    startTime = new Date();
-  };
-
-  this.stop = function () {
-    if (!running) throw new Error("Stopwatch is not started.");
-
-    running = false;
-
-    endTime = new Date();
-
-    const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
-    duration += seconds;
-  };
-
-  this.reset = function () {
-    startTime = null;
-    endTime = null;
-    running = false;
-    duration = 0;
-  };
-
-  Object.defineProperty(this, "duration", {
-    get: function () {
-      return duration;
-    },
-  });
-}
-
-const sw = new Stopwatch()
