@@ -269,8 +269,13 @@ const sw = new Stopwatch()
 
 ## Prototypical Inheritance
 prototype is parent of another object. we have one object (ObjectBase)
-that every object we create inheritce that ObjectBase is root of all objects in the javscript and it' dosen't have prototype(parents)
+that every object we create inheritce that like this image that x and y are inherit from the  ObjectBase.
 
-if we call an object javascript engine first check it self object is is not exist check it parent not have check this until hte roo t of the object
+![Screenshot from 2024-09-27 13-51-32](https://github.com/user-attachments/assets/c394a830-1765-4861-ace0-8bf6ef1e6312)
+
+
+ObjectBase: <b>is root of all objects in the javscript and it' dosen't have prototype(parents)</b>
+
+if we call an something in object in the Javascript , Javascript engine first check it self object if it is not exist then check the parent again if not it will contiure up to root to find that if is not exist then show undefined
 
 <mark>A prototype is just a regular object</mark> just the root thosen't have 
