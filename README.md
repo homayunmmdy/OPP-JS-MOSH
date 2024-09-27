@@ -279,3 +279,26 @@ ObjectBase: <b>is root of all objects in the javscript and it' dosen't have prot
 if we call an something in object in the Javascript , Javascript engine first check it self object if it is not exist then check the parent again if not it will contiure up to root to find that if is not exist then show undefined
 
 <mark>A prototype is just a regular object</mark> just the root thosen't have 
+
+## Multilevel Inheritance
+
+Imagine we had array this array have protoype arrayBase and arrayBase inherit from object these is we call multi level inheritance like this image
+
+![ArrayBase](https://github.com/user-attachments/assets/174763fe-4d86-4527-b71d-970134c35acb)
+
+
+<mark>Objects created by a given constructor will have the same prototype</mark> in this example when we create with constructor we create CircleBase that inherit from root here is what we have in memory
+
+![ObjectBase](https://github.com/user-attachments/assets/57ca7e00-6b52-4b9a-9022-86b5903751cf)
+
+
+```javascript
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+
+const circle = new Circle(10);
+```
