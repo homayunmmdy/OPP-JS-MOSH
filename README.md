@@ -336,7 +336,55 @@ property is a reference to the function that was used to create an instance of a
 ```javascript
 let array = [];
 
-Object.getPrototypeOf(myObj) //both thses
+Object.getPrototypeOf(myObj); //both thses
 
-Array.prototype // and these are the same
+Array.prototype; // and these are the same
+```
+
+## Prototype vs Instance Members
+
+in some situation we repead something like this example this draw function all of theme are the same so we can save theme in protory and we have access to it and it's avaiable everywhere
+
+```javascript
+function Circle(radius) {
+  // Instancee members
+  this.radius = radius;
+}
+
+// Prototype memebers
+Circle.prototype.draw = function () {
+  console.log("draw");
+};
+
+const c1 = new Circle(1);
+const c2 = new Circle(2);
+
+Circle.prototype.toString = function () {
+  return "Circle with radius " + this.radius;
+};
+```
+
+also you can call the instance member and prototype members with this keywrod inside each other like this
+
+```javascript
+function Circle(radius) {
+  // Instancee members
+  this.radius = radius;
+  this.move = function () {
+    this.draw();
+    console.log("move");
+  };
+}
+
+// Prototype memebers
+Circle.prototype.draw = function () {
+  console.log("draw");
+};
+
+const c1 = new Circle(1);
+const c2 = new Circle(2);
+
+Circle.prototype.toString = function () {
+  return "Circle with radius " + this.radius;
+};
 ```

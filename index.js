@@ -1,7 +1,21 @@
-let array = [];
+function Circle(radius) {
+    // Instancee members
+  this.radius = radius;
 
-Object.getPrototypeOf(myObj) //both thses
+  this.move = function() {
+    this.draw()
+    console.log('move')
+  }
+}
 
-Array.prototype // and these are the same
+// Prototype memebers
+Circle.prototype.draw = function () {
+  console.log("draw");
+};
 
+const c1 = new Circle(1);
+const c2 = new Circle(2);
 
+Circle.prototype.toString = function() {
+    return 'Circle with radius ' + this.radius
+}
