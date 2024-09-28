@@ -328,3 +328,15 @@ Object.defineProperty(person, "name", {
 person.name = "John"; // the name will not change
 console.log(Object.keys(person)); // we will get empty array because enumerable is false
 ```
+
+## Constructor Prototypes
+
+property is a reference to the function that was used to create an instance of an object. it allows you to check the reference the function that created the instace.
+
+```javascript
+let array = [];
+
+Object.getPrototypeOf(myObj) //both thses
+
+Array.prototype // and these are the same
+```
