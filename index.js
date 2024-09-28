@@ -1,21 +1,21 @@
 function Circle(radius) {
-    // Instancee members
+  // Instancee members
   this.radius = radius;
 
-  this.move = function() {
-    this.draw()
-    console.log('move')
-  }
+  this.move = function () {
+    console.log("move");
+  };
 }
+
+const c1 = new Circle(1);
 
 // Prototype memebers
 Circle.prototype.draw = function () {
   console.log("draw");
 };
 
-const c1 = new Circle(1);
-const c2 = new Circle(2);
+// Return instance members
+console.log(Object.keys(c1));
 
-Circle.prototype.toString = function() {
-    return 'Circle with radius ' + this.radius
-}
+// Return all members (instance  + prototype)
+for (let key in c1) console.log(key);
