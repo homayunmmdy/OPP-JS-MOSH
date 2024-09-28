@@ -388,6 +388,7 @@ Circle.prototype.toString = function () {
   return "Circle with radius " + this.radius;
 };
 ```
+
 ## Iterating Instance and Prototype Members
 
 ```javascript
@@ -412,5 +413,18 @@ console.log(Object.keys(c1));
 
 // Return all members (instance  + prototype)
 for (let key in c1) console.log(key);
+```
 
+## Avoid Extending the Built-in Objects
+
+Don't modify object you don't own!
+like this
+
+```javascript
+Array.prototype.shuffle = function () {
+  // ..
+};
+
+const array = [];
+array.shuffle();
 ```
