@@ -453,26 +453,54 @@ const c = new Circle(1);
 ```
 
 ## Resetting the Constructor
-when ever you reset the prototype as best practice make sure to reset the constructor as well
-```javascript
-function Shape() {
-}
 
-Shape.prototype.dublicate = function() {
-  console.log('dublication')
-}
+when ever you reset the prototype as best practice make sure to reset the constructor as well
+
+```javascript
+function Shape() {}
+
+Shape.prototype.dublicate = function () {
+  console.log("dublication");
+};
 
 function Circle(radius) {
-  this.radius = radius
+  this.radius = radius;
 }
 
 Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;
 
-Circle.prototype.draw = function() {
-  console.log('draw')
-}
+Circle.prototype.draw = function () {
+  console.log("draw");
+};
 
 const s = new Shape();
 const c = new Circle(1);
+```
+
+## Calling the Super Constructor
+
+```javascript
+function Shape(color) {
+  this.color = color;
+}
+
+Shape.prototype.dublicate = function () {
+  console.log("dublication");
+};
+
+function Circle(radius, color) {
+  Shape.call(this, color);
+  this.radius = radius;
+}
+
+Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constructor = Circle;
+
+Circle.prototype.draw = function () {
+  console.log("draw");
+};
+
+const s = new Shape();
+const c = new Circle(1, "red");
 ```
