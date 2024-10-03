@@ -18,7 +18,25 @@ function HTMLSelectElement(item = []) {
   this.removeItem = function (item) {
     this.item.splice(this.item.indexOf(item), 1);
   };
+
+  this.render = function () {
+    return `
+    <select>${this.item.map(item => `
+      <option>${item}<option>`).join("")}
+    </select>
+    `;
+  };
 }
 
-HTMLSelectElement.prototype = new HTMLElement()
+HTMLSelectElement.prototype = new HTMLElement();
 HTMLSelectElement.prototype.constructor = HTMLSelectElement;
+
+function HtmlImageElement(src) {
+  this.src = src;
+  this.render = function () {
+    return `<img src=${this.src} />`;
+  };
+}
+
+HtmlImageElement.prototype = new HTMLElement();
+HtmlImageElement.prototype.constructor = HtmlImageElement;
