@@ -1,42 +1,20 @@
-function HTMLElement() {
-  this.click = function () {
-    console.log("Clicked");
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
   };
 }
 
-HTMLElement.prototype.focus = function () {
-  console.log("focued");
-};
-
-function HTMLSelectElement(item = []) {
-  this.item = item;
-
-  this.addItem = function (item) {
-    this.item.push(item);
-  };
-
-  this.removeItem = function (item) {
-    this.item.splice(this.item.indexOf(item), 1);
-  };
-
-  this.render = function () {
-    return `
-    <select>${this.item.map(item => `
-      <option>${item}<option>`).join("")}
-    </select>
-    `;
-  };
+class Circle {
+  constructor(radius) {
+    // Instancee members
+    this.radius = radius;
+    this.move = function () {};
+  }
+  // Prototype members
+  draw() {
+    console.log("draw");
+  }
 }
 
-HTMLSelectElement.prototype = new HTMLElement();
-HTMLSelectElement.prototype.constructor = HTMLSelectElement;
-
-function HtmlImageElement(src) {
-  this.src = src;
-  this.render = function () {
-    return `<img src=${this.src} />`;
-  };
-}
-
-HtmlImageElement.prototype = new HTMLElement();
-HtmlImageElement.prototype.constructor = HtmlImageElement;
+const c = new Circle(1);

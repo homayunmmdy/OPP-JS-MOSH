@@ -725,3 +725,31 @@ HtmlImageElement.prototype = new HTMLElement();
 HtmlImageElement.prototype.constructor = HtmlImageElement;
 
 ```
+
+## ES6 Classes
+here is the old way of building
+```javascript
+function Circle(radius) {
+  this.radius = radius
+  this.draw = function() {
+    console.log('draw')
+  }
+}
+```
+
+and here is the new way of it
+```javascript
+class Circle {
+  constructor(radius) {
+    // Instancee members
+    this.radius = radius;
+    this.move = function () {};
+  }
+  // Prototype members
+  draw() {
+    console.log("draw");
+  }
+}
+
+const c = new Circle(1);
+```
