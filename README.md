@@ -506,7 +506,9 @@ const c = new Circle(1, "red");
 ```
 
 ## Intermediate Function Inheritance
+
 this extend we called intermedia function inheritance
+
 ```javascript
 function Shape(color) {
   this.color = color;
@@ -526,7 +528,7 @@ function Circle(radius, color) {
   this.radius = radius;
 }
 
-extend(Circle, Shape)
+extend(Circle, Shape);
 Circle.prototype.draw = function () {
   console.log("draw");
 };
@@ -535,15 +537,14 @@ function Squre(size) {
   this.size = size;
 }
 
-extend(Squre, Shape)
-
+extend(Squre, Shape);
 
 const s = new Shape();
 const c = new Circle(1, "red");
-
 ```
 
 ## Method Overriding
+
 ```javascript
 function extend(Child, Parent) {
   Child.prototype = Object.create(Parent.prototype);
@@ -561,15 +562,15 @@ function Circle() {}
 extend(Circle, Shape);
 
 Circle.prototype.dublicate = function () {
-  Shape.prototype.dublicate()
+  Shape.prototype.dublicate();
   console.log("dublication Circle");
 };
 
 const c = new Circle();
-
 ```
 
 ## Polymorphism
+
 ```javascript
 function extend(Child, Parent) {
   Child.prototype = Object.create(Parent.prototype);
@@ -599,17 +600,54 @@ Squre.prototype.dublicate = function () {
   console.log("dublication Squre");
 };
 
-const shapes = [
-  new Circle(),
-  new Squre()
-]
+const shapes = [new Circle(), new Squre()];
 
-for(let shape of shapes)
-  shape.dublicate()
+for (let shape of shapes) shape.dublicate();
 
 const c = new Circle();
-
 ```
 
-# Best paractice 
+# Best paractice
+
 in inheritance keep it in one level don't go deeper
+
+# mixins
+
+```javascript
+function mixin(target, ...sources) {
+  Object.assign(target, ...sources);
+}
+
+const canEat = {
+  eat() {
+    this.hunger--;
+    console.log("eating");
+  },
+};
+
+const canWalk = {
+  walk() {
+    console.log("walking");
+  },
+};
+
+const canSwim = {
+  swim() {
+    console.log("Swimming");
+  },
+};
+
+function Person() {}
+
+mixin(Person.prototype, canEat, canWalk);
+
+const person = new Person();
+console.log(person);
+
+function Goldfish() {}
+
+mixin(Goldfish.prototype, canEat, canSwim);
+
+const goldfish = new Goldfish();
+console.log(goldfish);
+```
