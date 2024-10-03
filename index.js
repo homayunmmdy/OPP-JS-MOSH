@@ -1,36 +1,24 @@
-function mixin(target, ...sources) {
-  Object.assign(target,...sources)
+function HTMLElement() {
+  this.click = function () {
+    console.log("Clicked");
+  };
 }
 
-const canEat = {
-  eat() {
-    this.hunger--;
-    console.log("eating");
-  },
+HTMLElement.prototype.focus = function () {
+  console.log("focued");
 };
 
-const canWalk = {
-  walk() {
-    console.log("walking");
-  },
-};
+function HTMLSelectElement(item = []) {
+  this.item = item;
 
-const canSwim = {
-  swim() {
-    console.log("Swimming")
-  }
+  this.addItem = function (item) {
+    this.item.push(item);
+  };
+
+  this.removeItem = function (item) {
+    this.item.splice(this.item.indexOf(item), 1);
+  };
 }
 
-function Person() {}
-
-mixin(Person.prototype, canEat, canWalk);
-
-const person = new Person();
-console.log(person);
-
-function Goldfish() {}
-
-mixin(Goldfish.prototype, canEat, canSwim)
-
-const goldfish = new Goldfish()
-console.log(goldfish)
+HTMLSelectElement.prototype = new HTMLElement()
+HTMLSelectElement.prototype.constructor = HTMLSelectElement;
