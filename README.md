@@ -753,3 +753,29 @@ class Circle {
 
 const c = new Circle(1);
 ```
+
+## Hosting
+Function Declaration which mean that they raised into top of the code.
+in contracts functions expression are not hoisted
+```javascript
+// Function Declaration
+function sayHello() {}
+
+// Function Expression
+const sayGoodbye = function () {};
+
+```
+
+but on like before the Class Decaration are not hoisted. also mustly used is Class declaration
+
+```javascript
+// Class Decaration
+class Circle {
+  
+}
+
+// Class Expression
+const Squre = class {
+
+}
+```
