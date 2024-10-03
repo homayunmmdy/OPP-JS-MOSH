@@ -610,3 +610,6 @@ for(let shape of shapes)
 const c = new Circle();
 
 ```
+
+# Best paractice 
+in inheritance keep it in one level don't go deeper
