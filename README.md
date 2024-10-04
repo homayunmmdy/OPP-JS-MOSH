@@ -779,3 +779,41 @@ const Squre = class {
 
 }
 ```
+
+## Strict Mode
+now in this example draw is instance method wich is mean availabe in object instace
+static are things that only avaible in calss it self <mark>we are use for create utlity that not specific to object </mark>
+```javascript
+
+class Circle {
+  constructor(radius) {
+    this.radius = radius
+  }
+
+  // Instance method
+  draw() {}
+
+  // Static Method
+  static parse(str) {
+    const radius = JSON.parse(str).radius;
+    return new Circle(radius)
+  }
+}
+
+const c = Circel.parse('{"radius": 1}')
+console.log(c)
+```
+
+same as Math function in javascript if Math not exist we would do somethig like this 
+```javascript
+class Math2 {
+  static abs(value) {
+    //..
+  }
+}
+
+
+Math2.abs()
+```
+
+now we can use any function without new up a class 

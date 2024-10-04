@@ -1,9 +1,8 @@
-// Class Decaration
-class Circle {
-  
+class Math2 {
+  static abs(value) {
+    //..
+  }
 }
 
-// Class Expression
-const Squre = class {
 
-}
+Math2.abs()
