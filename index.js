@@ -1,8 +1,8 @@
-class Math2 {
-  static abs(value) {
-    //..
+class Circle {
+  draw() {
+    console.log(this)
   }
 }
-
-
-Math2.abs()
+const c = Circle()
+const draw = c.draw
+draw()

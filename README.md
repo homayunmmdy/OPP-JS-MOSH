@@ -817,3 +817,31 @@ Math2.abs()
 ```
 
 now we can use any function without new up a class 
+
+# The This key word 
+if we call the method like function it will refer to that global/window object but if we turn one stric mode by writing <b>use strict</b> as string on the top it will not refer to global/window
+```javascript
+const Circle = function() {
+  this.draw = function() {console.log(this)}
+}
+
+const c = new Circle()
+// Method Call
+c.draw()
+
+const draw = c.draw
+// Function Call
+draw()
+```
+
+In ES6 classes body of class are run by strict mode we no longer refer to global/window object this prevent us to accedently modified the global object
+```javascript
+class Circle {
+  draw() {
+    console.log(this)
+  }
+}
+const c = Circle()
+const draw = c.draw
+draw()
+```
