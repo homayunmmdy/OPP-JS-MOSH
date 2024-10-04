@@ -679,7 +679,9 @@ function HTMLSelectElement(item = []) {
 
 HTMLSelectElement.prototype = new HTMLElement();
 ```
-## 
+
+##
+
 ```javascript
 function HTMLElement() {
   this.click = function () {
@@ -704,8 +706,12 @@ function HTMLSelectElement(item = []) {
 
   this.render = function () {
     return `
-    <select>${this.item.map(item => `
-      <option>${item}<option>`).join("")}
+    <select>${this.item
+      .map(
+        (item) => `
+      <option>${item}<option>`
+      )
+      .join("")}
     </select>
     `;
   };
@@ -723,21 +729,23 @@ function HtmlImageElement(src) {
 
 HtmlImageElement.prototype = new HTMLElement();
 HtmlImageElement.prototype.constructor = HtmlImageElement;
-
 ```
 
 ## ES6 Classes
+
 here is the old way of building
+
 ```javascript
 function Circle(radius) {
-  this.radius = radius
-  this.draw = function() {
-    console.log('draw')
-  }
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
 }
 ```
 
 and here is the new way of it
+
 ```javascript
 class Circle {
   constructor(radius) {
@@ -755,39 +763,37 @@ const c = new Circle(1);
 ```
 
 ## Hosting
+
 Function Declaration which mean that they raised into top of the code.
 in contracts functions expression are not hoisted
+
 ```javascript
 // Function Declaration
 function sayHello() {}
 
 // Function Expression
 const sayGoodbye = function () {};
-
 ```
 
 but on like before the Class Decaration are not hoisted. also mustly used is Class declaration
 
 ```javascript
 // Class Decaration
-class Circle {
-  
-}
+class Circle {}
 
 // Class Expression
-const Squre = class {
-
-}
+const Squre = class {};
 ```
 
 ## Strict Mode
+
 now in this example draw is instance method wich is mean availabe in object instace
 static are things that only avaible in calss it self <mark>we are use for create utlity that not specific to object </mark>
-```javascript
 
+```javascript
 class Circle {
   constructor(radius) {
-    this.radius = radius
+    this.radius = radius;
   }
 
   // Instance method
@@ -796,15 +802,16 @@ class Circle {
   // Static Method
   static parse(str) {
     const radius = JSON.parse(str).radius;
-    return new Circle(radius)
+    return new Circle(radius);
   }
 }
 
-const c = Circel.parse('{"radius": 1}')
-console.log(c)
+const c = Circel.parse('{"radius": 1}');
+console.log(c);
 ```
 
-same as Math function in javascript if Math not exist we would do somethig like this 
+same as Math function in javascript if Math not exist we would do somethig like this
+
 ```javascript
 class Math2 {
   static abs(value) {
@@ -812,36 +819,59 @@ class Math2 {
   }
 }
 
-
-Math2.abs()
+Math2.abs();
 ```
 
-now we can use any function without new up a class 
+now we can use any function without new up a class
 
-# The This key word 
+# The This key word
+
 if we call the method like function it will refer to that global/window object but if we turn one stric mode by writing <b>use strict</b> as string on the top it will not refer to global/window
+
 ```javascript
-const Circle = function() {
-  this.draw = function() {console.log(this)}
-}
+const Circle = function () {
+  this.draw = function () {
+    console.log(this);
+  };
+};
 
-const c = new Circle()
+const c = new Circle();
 // Method Call
-c.draw()
+c.draw();
 
-const draw = c.draw
+const draw = c.draw;
 // Function Call
-draw()
+draw();
 ```
 
 In ES6 classes body of class are run by strict mode we no longer refer to global/window object this prevent us to accedently modified the global object
+
 ```javascript
 class Circle {
   draw() {
-    console.log(this)
+    console.log(this);
   }
 }
-const c = Circle()
-const draw = c.draw
-draw()
+const c = Circle();
+const draw = c.draw;
+draw();
+```
+
+## Private Members Using Symbols
+
+Every time we called the Symbols we get new value we use this as proprtery name in object
+
+```javascript
+const _radius = Symbol();
+const _draw = Symbol();
+
+class Circle {
+  constructor(radius) {
+    this[_radius] = radius;
+  }
+
+  [_draw]() {}
+}
+
+const c = new Circle(1);
 ```
