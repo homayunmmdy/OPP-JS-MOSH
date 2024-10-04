@@ -1,14 +1,19 @@
-const _radius = Symbol()
-const _draw = Symbol()
+const _radius = new WeakMap();
+const _move = new WeakMap();
 
 class Circle {
   constructor(radius) {
-    this[_radius] = radius;
+    _radius.set(this, radius);
+
+    _move.set(this,  () => {
+      console.log("Move", this);
+    });
   }
 
-  [_draw]() {
-
+  draw() {
+    _move.get(this)();
+    console.log("draw");
   }
 }
 
-const c = new Circle(1)
+const c = new Circle(1);
